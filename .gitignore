@@ -1,0 +1,28 @@
+# Never commit candidate or connector data
+USER_CONFIGURATION.yaml
+USER_CONFIGURATION.yml
+PRIVATE_SOURCE_MANIFEST.md
+personal/
+private/
+profiles/
+secrets/
+credentials/
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*_personal.csv
+*_personal.xlsx
+*.local.md
+__pycache__/
+.DS_Store
+
+# Candidate uploads should stay in private Projects/Drive, not a public template repo
+*.docx
+*.pdf
+*.xlsx
+*.xls
+*.eml
+*.msg

@@ -1,0 +1,75 @@
+# COPY TO A PRIVATE FILE such as USER_CONFIGURATION.yaml.
+# Never commit the filled file, personal Google links, or career data to a public repository.
+# Delete unknown fields or use null rather than inventing answers.
+
+config_version: 1
+candidate:
+  display_name: null                 # Optional; not necessary for screening
+  preferred_language: "English"     # Language for ChatGPT reports, not proficiency evidence
+  current_factual_cv: null           # Private file ID/link; authoritative complete CV
+  detailed_project_portfolio: null   # Private file ID/link
+  additional_source_manifest: null   # Private file ID/link
+  source_version_verified_at: null   # YYYY-MM-DD or null
+
+job_search:
+  target_role_families: []           # e.g., ["quality engineer", "technical program manager"]
+  target_industries: []              # User preferences, not inferred mandatory requirements
+  excluded_roles_or_industries: []
+  target_countries: []               # Explicit country list
+  target_regions_or_cities: []
+  remote_preference: null            # onsite | hybrid | remote | flexible | null
+  willing_to_relocate: null          # true | false | null; specify by location if conditional
+  relocation_regions: []
+  willing_to_travel: null            # true | false | null
+  travel_constraints: []
+  work_authorization_by_country: {}  # e.g., {"COUNTRY": "authorized / needs visa / unknown"}
+  languages: []                      # State actual proficiency; certificates separately
+  salary_target:
+    amount: null
+    currency: null
+    basis: "annual_base"             # annual_base | hourly | other
+    negotiable: null
+  seniority_preferences: []
+  must_not_assume: []                # User-specific rules/gaps requiring careful screening
+
+screening:
+  verified_match_threshold: 0.73
+  required_gate_policy: "all_actual_mandatory_met"
+  functional_gate_policy: "direct_or_substantiated_equivalent"
+  role_weights:
+    defining_responsibilities: 45
+    required_technical: 25
+    domain_process: 15
+    seniority_independence: 10
+    preferred: 5
+  evidence_factors:
+    direct: 1.0
+    substantiated_equivalent: 0.85
+    transferable: 0.5
+    weak: 0.2
+    none: 0.0
+  verified_job_status_policy: "verify_exact_current_job; disclose_apply_status_uncertainty"
+
+sources:
+  gmail_account: null               # Identified privately, never in public template
+  linkedin_alert_queries: []        # Observe genuine sender patterns first
+  forwarded_sender_queries: []      # Only for user's own confirmed forwarded alerts
+  gmail_lookback_days: 7
+  optional_company_careers_sources: []
+  optional_private_manual_backlog: null # Private CSV/sheet or notes; NOT the verified Job Matches tab
+  private_google_sheet_url: null     # Private, not a share-everyone public link
+  verified_tab: "Job Matches"
+  audit_location: null               # Optional private audit document/sheet
+
+monitoring:
+  mode: "manual"                     # manual | scheduled_daily | event_triggered_if_supported
+  desired_local_time: null          # e.g. 18:00; user's choice
+  time_zone: null                   # IANA time zone, e.g. Europe/Paris
+  task_id: null                     # PRIVATE, only after confirmed task exists
+  task_enabled_verified_at: null    # Last live check, not inferred from history
+  scheduled_source_access_test: false
+  scheduled_gmail_access_test: false
+  scheduled_sheet_read_write_test: false
+  optional_historical_rechecks_per_run: 0 # Set 2-4 only with a real configured private backlog
+  report_zero_matches: true
+  no_automatic_applications: true
